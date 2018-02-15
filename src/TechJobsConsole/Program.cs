@@ -61,16 +61,31 @@ namespace TechJobsConsole
                     List<Dictionary<string, string>> searchResults;
 
                     // Fetch results
+                    
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.But almost?");
+                        //Console.WriteLine("Search all fields not yet implemented.But almost?");
                         searchResults = JobData.FindByValue(searchTerm);
-                        PrintJobs(searchResults);
+                        if (searchResults.Count > 0)
+                        {
+                            PrintJobs(searchResults);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Results Not Found. Please search for something else.");
+                        }
                     }
                     else
                     {
                         searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
-                        PrintJobs(searchResults);
+                        if (searchResults.Count > 0)
+                        {
+                            PrintJobs(searchResults);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Results Not Found. Please search for something else.");
+                        }
                     }
                 }
             }
@@ -94,7 +109,7 @@ namespace TechJobsConsole
 
             do
             {
-                Console.WriteLine("\n" + choiceHeader + " byTESTINGTESTINGTESTING:");
+                Console.WriteLine("\n" + choiceHeader + " by:");
 
                 for (int j = 0; j < choiceKeys.Length; j++)
                 {

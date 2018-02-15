@@ -48,8 +48,8 @@ namespace TechJobsConsole
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
-
-                if (aValue.Contains(value))
+                bool valueContainsValue = aValue.IndexOf(value, System.StringComparison.OrdinalIgnoreCase) >= 0;
+                if (valueContainsValue == true)
                 {
                     jobs.Add(row);
                 }
@@ -143,26 +143,6 @@ namespace TechJobsConsole
         {
             
             LoadData();
-            /////
-            for (int j = 0; j < AllJobs.Count; j++)
-            {
-                List<string> keyList = new List<string>(AllJobs[j].Keys);
-                List<string> valueList = new List<string>(AllJobs[j].Values);
-
-                
-
-                for (int i = 0; i < keyList.Count; i++)
-                {
-
-                    ;
-
-                }
-                
-            }
-
-
-            /////
-
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
             List<string> columnList = new List<string>();
@@ -171,7 +151,7 @@ namespace TechJobsConsole
             columnList.Add("location");
             columnList.Add("position type");
             columnList.Add("core competency");
-            /////////////////////////////////////////////////////////////////////////////////////////////////
+
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 int x = 0;
@@ -179,7 +159,6 @@ namespace TechJobsConsole
 
                 aValue = row[columnList[x]];
 
-                string title = "STRING";
                 bool contains = aValue.IndexOf(value, System.StringComparison.OrdinalIgnoreCase) >= 0;
 
 
