@@ -137,6 +137,42 @@ namespace TechJobsConsole
             valueBuilder.Clear();
 
             return rowValues.ToArray();
+
+        }
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+            // load data, if not already loaded
+            LoadData();
+
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+            List<string> columnList = new List<string>();
+            columnList.Add("name");
+            columnList.Add("employer");
+            columnList.Add("location");
+            columnList.Add("position type");
+            columnList.Add("core competency");
+            
+            foreach (Dictionary<string, string> row in AllJobs)
+            {
+                int x = 0;
+                string aValue;
+                aValue = row[columnList[x]];
+                
+                if (aValue.Contains(value))
+                {
+                    jobs.Add(row);
+                }
+                for (int i = 0; i < row.Count; i++)
+                {
+                    if (row[columnList[i]] == value)
+                    {
+                        jobs.Add(row);
+                    }
+                }
+                x += 1;
+            }
+
+            return jobs;
         }
     }
 }

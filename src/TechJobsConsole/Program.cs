@@ -63,7 +63,9 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        Console.WriteLine("Search all fields not yet implemented.But almost?");
+                        searchResults = JobData.FindByValue(searchTerm);
+                        PrintJobs(searchResults);
                     }
                     else
                     {
@@ -118,15 +120,21 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            List<string> keyList = new List<string>(someJobs[0].Keys);
-            List<string> valueList = new List<string>(someJobs[0].Values);
-
-            for (int i = 0; i < keyList.Count; i++)
-            {
-                Console.WriteLine(keyList[i] + ": " + valueList[i]);
+          
+                for (int j = 0; j < someJobs.Count; j++)
+                {
+                    List<string> keyList = new List<string>(someJobs[j].Keys);
+                    List<string> valueList = new List<string>(someJobs[j].Values);
+                    Console.WriteLine("*****");
+                    for (int i = 0; i < keyList.Count; i++)
+                    {
+                    
+                        Console.WriteLine(keyList[i] + ": " + valueList[i]);
+                    
+                    }
+                    Console.WriteLine("*****\n"); //There must be a better way of doing this...
             }
-
-                Console.WriteLine("printJobs is not implemented yet");
+          
         }
     }
 }
