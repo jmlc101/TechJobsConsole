@@ -26,7 +26,7 @@ namespace TechJobsConsole
 
             // Allow user to search/list until they manually quit with ctrl+c
             while (true)
-            {
+            {// ////////////////// where is initiating first user prompt for entry???
 
                 string actionChoice = GetUserSelection("View Jobs", actionChoices);
 
@@ -92,7 +92,7 @@ namespace TechJobsConsole
 
             do
             {
-                Console.WriteLine("\n" + choiceHeader + " by:");
+                Console.WriteLine("\n" + choiceHeader + " byTESTINGTESTINGTESTING:");
 
                 for (int j = 0; j < choiceKeys.Length; j++)
                 {
@@ -118,7 +118,15 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+            List<string> keyList = new List<string>(someJobs[0].Keys);
+            List<string> valueList = new List<string>(someJobs[0].Values);
+
+            for (int i = 0; i < keyList.Count; i++)
+            {
+                Console.WriteLine(keyList[i] + ": " + valueList[i]);
+            }
+
+                Console.WriteLine("printJobs is not implemented yet");
         }
     }
 }

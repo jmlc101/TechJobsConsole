@@ -84,7 +84,7 @@ namespace TechJobsConsole
                 }
             }
 
-            string[] headers = rows[0];
+            string[] headers = rows[0]; // whats this doing to the strings???
             rows.Remove(headers);
 
             // Parse each row array into a more friendly Dictionary
