@@ -7,6 +7,7 @@ namespace TechJobsConsole
     {
         static void Main(string[] args)
         {
+            // I think its returning job more than once ex: search, All, Ruby.
             // Create two Dictionary vars to hold info for menu and data
 
             // Top-level menu options

@@ -51,7 +51,10 @@ namespace TechJobsConsole
                 bool valueContainsValue = aValue.IndexOf(value, System.StringComparison.OrdinalIgnoreCase) >= 0;
                 if (valueContainsValue == true)
                 {
-                    jobs.Add(row);
+                    if (!jobs.Contains(row))
+                    {
+                        jobs.Add(row);
+                    }
                 }
             }
 
@@ -164,7 +167,10 @@ namespace TechJobsConsole
 
                 if (contains == true)
                 {
-                    jobs.Add(row);
+                    if (!jobs.Contains(row))
+                    {
+                        jobs.Add(row);
+                    }
                 }
 
                 foreach (KeyValuePair<string, string> entry in row) 
@@ -177,7 +183,10 @@ namespace TechJobsConsole
                     bool valueContainsValue = entry.Value.IndexOf(value, System.StringComparison.OrdinalIgnoreCase) >= 0;
                     if (valueContainsValue == true)
                     {
+                        if (!jobs.Contains(row))
+                        { 
                         jobs.Add(row);
+                        }
                     }
                 }
                 x += 1;
